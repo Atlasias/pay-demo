@@ -37,8 +37,10 @@
 		(2) [url]/api/api4, header parameter에 brName 추가
 
 4. [테스트 실행] 
->	src/test/java > com.pay.api.controller.ApiControllerTest 우클릭 > run as > JUnit Test 클릭
-
+>	[eclipse] 
+>	-src/test/java &gt; com.pay.api.controller.ApiControllerTest 우클릭 &gt; run as &gt; JUnit Test 클릭
+>	[JAR]	
+>	-
 
 5. [API 해결방법]
 >
