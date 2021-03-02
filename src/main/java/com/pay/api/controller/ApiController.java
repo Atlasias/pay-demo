@@ -29,7 +29,9 @@ public class ApiController {
 	 * */
 	@RequestMapping(value = "/api1", method = RequestMethod.GET)
 	public String getApi1(HttpServletRequest request, HttpServletResponse response) {
+		
 		result = apiService.selectApi1();
+		
 		return result;
 	}
 	
@@ -38,7 +40,9 @@ public class ApiController {
 	 * */
 	@RequestMapping(value = "/api2", method = RequestMethod.GET)
 	public String getApi2(HttpServletRequest request, HttpServletResponse response) {
+		
 		result = apiService.selectApi2();
+		
 		return result;
 	}
 	
@@ -47,7 +51,9 @@ public class ApiController {
 	 * */
 	@RequestMapping(value = "/api3", method = RequestMethod.GET)
 	public String getApi3(HttpServletRequest request, HttpServletResponse response) {
+		
 		result = apiService.selectApi3();
+		
 		return result;
 	}
 
