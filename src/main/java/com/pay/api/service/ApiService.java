@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import com.pay.api.domain.Api3;
 import com.pay.api.domain.Api3Detail;
 import com.pay.api.mapper.ApiMapper;
-import com.pay.exception.exceptions.BrNotFoundException;
+import com.pay.exception.BrNotFoundException;
 
 @Service
 public class ApiService {

@@ -1,4 +1,4 @@
-package com.pay.exception.advice;
+package com.pay.advice;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.pay.exception.exceptions.BrNotFoundException;
+import com.pay.exception.BrNotFoundException;
 
 @ControllerAdvice
 public class ExceptionController {

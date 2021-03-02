@@ -29,7 +29,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import com.google.gson.Gson;
 import com.pay.Application;
 import com.pay.api.service.ApiService;
-import com.pay.exception.exceptions.BrNotFoundException;
+import com.pay.exception.BrNotFoundException;
 
 @DisplayName("API CONTROLLER TEST")
 @RunWith(SpringRunner.class)
