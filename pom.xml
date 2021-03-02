@@ -101,7 +101,6 @@
 			</plugin>
 			
 			<plugin>
-
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <dependencies>
@@ -121,9 +120,7 @@
 						<scope>test</scope>
 					</dependency>
                 </dependencies>
-
             </plugin>
-			
 		</plugins>
 	</build>
 	<packaging>war</packaging>
