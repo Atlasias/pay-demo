@@ -5,14 +5,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
 import org.mybatis.spring.boot.test.autoconfigure.AutoConfigureMybatis;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.event.annotation.BeforeTestExecution;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
@@ -32,7 +29,8 @@ import com.pay.api.service.ApiService;
 import com.pay.exception.BrNotFoundException;
 
 @DisplayName("API CONTROLLER TEST")
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @AutoConfigureMybatis 
@@ -45,8 +43,8 @@ public class ApiControllerTest {
 	
 	Gson gson = new Gson();
 	
-	@Rule
-    public ExpectedException thrown = ExpectedException.none();
+	//@Rule
+    //public ExpectedException thrown = ExpectedException.none();
     
     @Autowired
     private ApiService apiService;

@@ -1,10 +1,8 @@
 package com.pay.api.domain;
 
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @NoArgsConstructor @RequiredArgsConstructor @ToString

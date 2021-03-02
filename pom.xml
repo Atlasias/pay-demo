@@ -15,6 +15,8 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 	<dependencies>
 		
@@ -30,6 +32,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
 		<dependency>
             <groupId>com.opencsv</groupId>
@@ -114,14 +120,8 @@
                         <artifactId>junit-jupiter-engine</artifactId>
                         <version>5.1.1</version>
                     </dependency>
-                    <dependency>
-						<groupId>com.h2database</groupId>
-						<artifactId>h2</artifactId>
-						<scope>test</scope>
-					</dependency>
                 </dependencies>
             </plugin>
 		</plugins>
 	</build>
-	<packaging>war</packaging>
 </project>
