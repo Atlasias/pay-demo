@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.pay.api.mapper.ApiMapper">
+
+    <select id="selectApi1" resultType="com.pay.util.CamelCaseMap">
+    	/* com.pay.api.mapper.ApiMapper || mapper.api.apiMapper || selectApi1 */
+		SELECT T.YEAR, 
+				S.ACCT_NM AS NAME, 
+				T.ACCT_NO, 
+				T.FEE AS SUM_AMT 
+		FROM
+		(
+		   SELECT YEAR, ACCT_NO, FEE, MAX(FEE)  OVER (PARTITION BY YEAR) AS MAX_VAL
+			FROM 
+			(
+				SELECT YEAR,ACCT_NO, SUM(FEE) AS FEE 
+				FROM 
+				(
+				  SELECT    SUBSTRING(BIZDATE,0,4) AS YEAR,
+							ACCT_NO,
+						    USR_DEAL_NO,
+						    CANCEL_YN,
+							(AMT - VAT ) AS FEE
+						FROM DEAL_HIST 
+						WHERE SUBSTRING(BIZDATE,0,4) BETWEEN '2018' AND '2019'
+						      AND  CANCEL_YN = 'N'
+				) GROUP BY YEAR,ACCT_NO   
+			)A
+		) T LEFT OUTER JOIN ACC_HIST S
+				ON T.ACCT_NO = S.ACCT_NO
+		WHERE T.FEE = T.MAX_VAL
+
+    </select>
+
+	<select id="selectApi2" resultType="com.pay.util.CamelCaseMap">
+		/* com.pay.api.mapper.ApiMapper || mapper.api.apiMapper || selectApi2 */
+		SELECT ACC.ACCT_NO,
+				ACC.ACCT_NM,
+				ACC.YEAR
+		FROM (
+		
+		            SELECT ACCT_NO,ACCT_NM,S.YEAR 
+		             FROM ACC_HIST A, 
+		             (
+		               SELECT '2018' AS YEAR FROM DUAL 
+		               
+		               UNION 
+		               
+		               SELECT '2019' AS YEAR FROM DUAL
+		             ) S
+		           
+		)ACC
+		LEFT OUTER JOIN
+		                               (
+		                                   SELECT 
+		                                         SUBSTR(DEAL.BIZDATE,0,4) AS YEAR
+		                                             ,DEAL.ACCT_NO AS ACCT_NO
+		                                          ,COUNT(ACCT_NO) AS ACCT_CNT
+		                                  FROM  DEAL_HIST DEAL
+		                                 WHERE SUBSTR(DEAL.BIZDATE,0,4) BETWEEN '2018' AND '2019'
+		                                             AND DEAL.CANCEL_YN = 'N'
+		                                 GROUP BY  SUBSTR(DEAL.BIZDATE,0,4),ACCT_NO
+		                               ) DEALS
+		                   ON ACC.ACCT_NO = DEALS.ACCT_NO
+		WHERE DEALS.YEAR IS NULL OR DEALS.ACCT_CNT IS NULL
+		ORDER BY YEAR,ACCT_NO
+	</select>
+
+	<select id="selectApi3" resultType="com.pay.util.CamelCaseMap">
+		/* com.pay.api.mapper.ApiMapper || mapper.api.apiMapper || selectApi3 */
+		SELECT T.BR_CODE,T.BR_NAME,T.YEAR,SUM(FEE) AS SUM_AMT 
+		FROM 
+		(
+		      SELECT A.BR_CODE,A.BR_NAME,B.ACCT_NO,B.ACCT_NM,
+		              C.BIZDATE,
+		              SUBSTR(C.BIZDATE,0,4) AS YEAR,
+		              C.USR_DEAL_NO,
+		              C.AMT,
+		              C.VAT,
+		              C.AMT-C.VAT AS FEE
+		     FROM BR_HIST A
+		         LEFT OUTER JOIN ACC_HIST B ON A.BR_CODE = B.BR_CODE
+		         LEFT OUTER JOIN DEAL_HIST C ON B.ACCT_NO = C.ACCT_NO
+		     WHERE C.CANCEL_YN = 'N'
+		)T
+		GROUP BY T.BR_CODE,T.BR_NAME,T.YEAR
+		ORDER BY YEAR ASC, SUM_AMT DESC
+	</select>
+	
+	<select id="checkApi4" resultType="com.pay.util.CamelCaseMap" parameterType="hashmap">
+		/* com.pay.api.mapper.ApiMapper || mapper.api.apiMapper || checkApi4 */
+		
+			SELECT  (
+						CASE WHEN BR_NAME = '분당점' THEN NULL 
+	                      ELSE BR_CODE
+	                      END
+	                ) AS BR_CODE,
+                    (
+                    	CASE WHEN BR_NAME = '분당점' THEN NULL 
+                    	ELSE BR_NAME
+                    	END
+                   	) AS BR_NAME
+			FROM BR_HIST
+			WHERE BR_NAME = #{brName}
+	</select>
+	
+	<select id="selectApi4" resultType="com.pay.util.CamelCaseMap" parameterType="hashmap">
+		/* com.pay.api.mapper.ApiMapper || mapper.api.apiMapper || selectApi4 */
+		SELECT T.BR_CODE,
+				T.BR_NAME,
+				SUM(FEE) AS SUM_AMT 
+		FROM 
+		(
+		      SELECT (CASE WHEN A.BR_NAME = '분당점' THEN (SELECT BR_CODE FROM BR_HIST ZZ WHERE BR_NAME = '판교점') ELSE A.BR_CODE END) AS BR_CODE,
+					(CASE WHEN A.BR_NAME = '분당점' THEN (SELECT BR_NAME FROM BR_HIST ZZ WHERE BR_NAME = '판교점') ELSE A.BR_NAME END) AS BR_NAME,
+					--B.ACCT_NO,
+					--B.ACCT_NM,
+					--C.BIZDATE,
+					--SUBSTR(C.BIZDATE,0,4) AS YEAR,
+					--C.USR_DEAL_NO,
+					--C.AMT,
+					--C.VAT,
+					C.AMT-C.VAT AS FEE
+		     FROM BR_HIST A
+		         LEFT OUTER JOIN ACC_HIST B ON A.BR_CODE = B.BR_CODE
+		         LEFT OUTER JOIN DEAL_HIST C ON B.ACCT_NO = C.ACCT_NO
+		     WHERE C.CANCEL_YN = 'N'
+		)T
+		WHERE T.BR_NAME = #{brName}
+		GROUP BY T.BR_CODE,T.BR_NAME
+		ORDER BY SUM_AMT DESC
+	</select>
+
+</mapper>
