@@ -90,13 +90,25 @@
        <dependency>
           <groupId>org.junit.jupiter</groupId>
           <artifactId>junit-jupiter-api</artifactId>
+          <scope>test</scope>
        </dependency>
+       <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
 		<dependency>
 		    <groupId>org.mybatis.spring.boot</groupId>
 		    <artifactId>mybatis-spring-boot-starter-test</artifactId>
 		    <version>2.1.4</version>
 		    <scope>test</scope>
 		</dependency>
+		<!-- <dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-console-standalone</artifactId>
+		    <version>1.7.1</version>
+		    <scope>test</scope>
+		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -104,23 +116,33 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
 			</plugin>
-			
 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <dependencies>
+                <configuration>
+					<includes>
+						<include>**/Test*.java</include>
+						<include>**/*Test.java</include>
+						<include>**/*Tests.java</include>
+						<include>**/*TestCase.java</include>
+					</includes>
+					<properties>
+						<!-- <includeTags>fast</includeTags> -->
+						<!-- <excludeTags>slow</excludeTags> -->
+					</properties>
+				</configuration>
+                <!-- <dependencies>
                     <dependency>
                         <groupId>org.junit.platform</groupId>
                         <artifactId>junit-platform-surefire-provider</artifactId>
                         <version>1.1.1</version>
                     </dependency>
-                    <dependency>
-                        <groupId>org.junit.jupiter</groupId>
-                        <artifactId>junit-jupiter-engine</artifactId>
-                        <version>5.1.1</version>
-                    </dependency>
-                </dependencies>
+                </dependencies> -->
             </plugin>
 		</plugins>
 	</build>
