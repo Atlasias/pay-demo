@@ -30,9 +30,15 @@
 	    기능 2번: [url]/api/api2
 	    기능 3번: [url]/api/api3
 	    기능 4번: 
+<<<<<<< HEAD
 			(1) [url]/api/api4/{brName}, url parameter 값 입력
 			(2) [url]/api/api4, header parameter에 brName 추가
 			
+=======
+	             (1) [url]/api/api4/{brName}, url parameter 값 입력
+		     (2) [url]/api/api4, header parameter에 brName 추가
+			   
+>>>>>>> branch 'master' of https://github.com/Atlasias/pay-demo.git
 4. [테스트 실행] 
 >	src/test/java > com.pay.api.controller.ApiControllerTest 우클릭 > run as > JUnit Test 클릭
 
