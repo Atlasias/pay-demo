@@ -1,9 +1,13 @@
 [프로젝트 구성]
 >FRAMEWORK : SPRING BOOT</br>
 >DATABASE : H2</br>
+           url : [jdbc:h2:mem:pay]
+		   username : sa
+		   password : 없음
 >schema 스크립트 위치 : src/main/resources &gt; schema.sql</br>
 >BUILD : MAVEN</br>
 >SERVER : EMBEDDED TOMCAT</br>
+>         기본 port : 8080
 >SQL : MYBATIS</br>
 >      mapper 경로 : src/main/resources &gt; mapper</br>
 
