@@ -24,7 +24,7 @@
 >>	※해당 프로젝트 실행이 없으면 프로젝트 우클릭 &gt; run as &gt; Run Configurations 클릭 &gt; 좌측 항목 중에 Spring Boot App 클릭 &gt; Main type에 [com.pay.Application] 기입 후 하단의 Run 버튼 실행
 
 >	3. [JAR 파일 실행]
->		- jar 파일 클릭 또는 [cmd]창에 [demo.0.0.1-SNAPSHOT.jar] 가 있는 폴더로 이동 &gt; [java -jar demo.0.0.1-SNAPSHOT.jar] 입력
+>		- [demo.0.0.1-SNAPSHOT.jar] 파일 클릭 또는 [cmd]창에 [demo.0.0.1-SNAPSHOT.jar] 가 있는 폴더로 이동 &gt; [java -jar demo.0.0.1-SNAPSHOT.jar] 입력
 
 3. [API 호출]
 >	URL([url]은 실행되는 url + port, 기본: localhost:8080)
