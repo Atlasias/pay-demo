@@ -41,7 +41,7 @@
 >
 	(1) 취소 거래가 'Y'인 경우 일치하는 일자의 거래번호와 -SUM 해야하는지 불분명하여 'Y'인 항목은 제외하고 계산하였음.
 	(2) 자료구조를 json 변환하기 위해 Gson을 사용하였음.
-	(3) 기능1,기능2,기능3은 조회조건이 따로 없어 api상으로도 parameter없이 동작
+	(3) 기능1,기능2,기능3은 조회조건이 고정되어있어 api상으로 parameter가 없이 동작
 	(4) 기능3의 response json 구문을 생성하기 위해 domain에 Api3,Api3Detail 객체를 구현하여 json을 생성
 	(5) 기능4의 error handling은 custom exception인 BrNotFoundException을 구현, ExceptionController로 에러문구 생성.
 		에러구문은 json format에 맞출수 없어 약간의 수정을 통해 구현
