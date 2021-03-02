@@ -1,31 +1,32 @@
-[프로젝트 구성]
-FRAMEWORK : SPRING BOOT
-DATABASE : H2
-           schema 스크립트 위치 : src/main/resources > schema.sql
-BUILD : MAVEN
-SERVER : EMBEDDED TOMCAT
-SQL : MYBATIS
-      mapper 경로 : src/main/resources > mapper
+[프로젝트 구성]</br>
+FRAMEWORK : SPRING BOOT</br>
+DATABASE : H2</br>
+schema 스크립트 위치 : src/main/resources > schema.sql</br>
+BUILD : MAVEN</br>
+SERVER : EMBEDDED TOMCAT</br>
+SQL : MYBATIS</br>
+      mapper 경로 : src/main/resources > mapper</br>
 
 [실행방법]
+
 	[ZIP FILE]
 		압축파일을 풀고 난뒤 eclipse에서 File > Open Projects From File System... 클릭 후 압축이 풀린 폴더를 지정하여 project import
-		
+
 	[GITHUB]
 		[https://github.com/Atlasias/pay-demo.git] 경로상의 프로젝트를 로컬로 checkout 받아서 이용
+
+>>	eclipse 에서 import 후 [Boot Dashboard] 탭에서 demo 실행</br>
+>>	※해당 프로젝트 실행이 없으면 프로젝트 우클릭 &gt; run as &gt; Run Configurations 클릭 &gt; 좌측 항목 중에 Spring Boot App 클릭 &gt; Main type에 [com.pay.Application] 기입 후 하단의 Run 버튼 실행</br>
 		
-		eclipse 에서 import 후 [Boot Dashboard] 탭에서 demo 실행
-		    ※해당 프로젝트 실행이 없으면 프로젝트 우클릭 > run as > Run Configurations 클릭 > 좌측 항목 중에 Spring Boot App 클릭 > Main type에 [com.pay.Application] 기입 후 하단의 Run 버튼 실행
-		
-[API 호출] 
-	URL([url]은 실행되는 url + port, 기본: localhost:8080)
+>[API 호출] </br>
+>>	URL([url]은 실행되는 url + port, 기본: localhost:8080)
 	
-		기능 1번: [url]/api/api1
+	    기능 1번: [url]/api/api1
 	    기능 2번: [url]/api/api2
 	    기능 3번: [url]/api/api3
 	    기능 4번: 
-	           (1) [url]/api/api4/{brName}, url parameter 값 입력
-			   (2) [url]/api/api4, header parameter에 brName 추가
+	             (1) [url]/api/api4/{brName}, url parameter 값 입력
+		     (2) [url]/api/api4, header parameter에 brName 추가
 			   
 [테스트 실행] 
 	src/test/java > com.pay.api.controller.ApiControllerTest 우클릭 > run as > JUnit Test 클릭
