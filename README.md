@@ -7,8 +7,6 @@ SERVER : EMBEDDED TOMCAT
 SQL : MYBATIS
       mapper 경로 : src/main/resources > mapper
 
-[프로젝트 구성도]
-
 [실행방법]
 	[ZIP FILE]
 		압축파일을 풀고 난뒤 eclipse에서 File > Open Projects From File System... 클릭 후 압축이 풀린 폴더를 지정하여 project import
