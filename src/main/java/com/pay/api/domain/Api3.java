@@ -2,10 +2,9 @@ package com.pay.api.domain;
 
 import java.util.List;
 
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@NoArgsConstructor @ToString
+@ToString
 public class Api3 {
 	
 	private String year;

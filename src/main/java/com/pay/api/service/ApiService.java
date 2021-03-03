@@ -55,7 +55,7 @@ public class ApiService {
 	public String selectApi3() {
     	List<Map<String,Object>> mapperList = apiMapper.selectApi3();
 		
-    	List<Api3> api3List = new LinkedList<>();//api3 results
+    	List<Api3> api3List = new LinkedList<>();
     	
     	//기능3의 return json format에 맞추기 위해 가공
     	for(int i=0; i<mapperList.size();i++) {

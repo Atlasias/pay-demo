@@ -1,17 +1,12 @@
 package com.pay.api.domain;
 
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-@NoArgsConstructor @RequiredArgsConstructor @ToString
+@ToString
 public class Api3Detail {
 	
-	@NonNull 
 	private String brName;
 
-	@NonNull 
 	private String brCode;
 	
 	private long sumAmt;

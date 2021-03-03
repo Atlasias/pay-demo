@@ -33,7 +33,6 @@ public class CamelCaseMap extends ListOrderedMap {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Object put(Object key, Object value) {
-		//return super.put(toCamelCase((String)key), (value == null ? null: (value.toString())) );
 		return super.put(toCamelCase((String)key), value );
 	}
 
