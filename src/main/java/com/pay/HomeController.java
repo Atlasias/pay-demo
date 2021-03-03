@@ -14,9 +14,9 @@ public class HomeController {
 	private final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "",method = RequestMethod.GET)
-	public String home(HttpServletRequest request, HttpServletResponse response) {
-		logger.info("hi this is main");
-		return "hello world!";
+	public String main(HttpServletRequest request, HttpServletResponse response) {
+		logger.info("main");
+		return "";
 	}
 		
 }
