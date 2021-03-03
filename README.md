@@ -17,8 +17,8 @@
 >	1. [JAR 파일 실행]
 >		- [demo.0.0.1-SNAPSHOT.jar] 파일 클릭 또는 [cmd]창에 [demo.0.0.1-SNAPSHOT.jar] 가 있는 폴더로 이동 &gt; [java -jar demo.0.0.1-SNAPSHOT.jar] 입력
 >		
->	2. [ZIP FILE]
->		- 압축파일을 풀고 난뒤 eclipse에서 File > Open Projects From File System... 클릭 후 압축이 풀린 폴더를 지정하여 project import
+>	2. [ECLIPSE]
+>		- 압축파일을 풀고 난뒤 eclipse에서 File > [Open Projects From File System...] 클릭 후 압축이 풀린 폴더에서 [demo]폴더를 지정하여 project import
 >
 >	3. [GITHUB]
 >		- [https://github.com/Atlasias/pay-demo.git] 경로상의 프로젝트를 로컬로 checkout 받아서 이용
