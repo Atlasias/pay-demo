@@ -14,20 +14,21 @@
 
 2. [실행방법]
 >
->	1. [ZIP FILE]
+>	1. [JAR 파일 실행]
+>		- [demo.0.0.1-SNAPSHOT.jar] 파일 클릭 또는 [cmd]창에 [demo.0.0.1-SNAPSHOT.jar] 가 있는 폴더로 이동 &gt; [java -jar demo.0.0.1-SNAPSHOT.jar] 입력
+>		
+>	2. [ZIP FILE]
 >		- 압축파일을 풀고 난뒤 eclipse에서 File > Open Projects From File System... 클릭 후 압축이 풀린 폴더를 지정하여 project import
 >
->	2. [GITHUB]
+>	3. [GITHUB]
 >		- [https://github.com/Atlasias/pay-demo.git] 경로상의 프로젝트를 로컬로 checkout 받아서 이용
 >		
->>	eclipse 에서 import 후 [Boot Dashboard] 탭에서 demo 실행
->>	※해당 프로젝트 실행이 없으면 프로젝트 우클릭 &gt; run as &gt; Run Configurations 클릭 &gt; 좌측 항목 중에 Spring Boot App 클릭 &gt; Main type에 [com.pay.Application] 기입 후 하단의 Run 버튼 실행
+>>eclipse 에서 import 후 [Boot Dashboard] 탭에서 demo 실행<br>
+>>※해당 프로젝트 실행이 없으면 프로젝트 우클릭 &gt; run as &gt; Run Configurations 클릭 &gt; 좌측 항목 중에 Spring Boot App 클릭 &gt; Main type에 [com.pay.Application] 기입 후 하단의 Run 버튼 실행
 
->	3. [JAR 파일 실행]
->		- [demo.0.0.1-SNAPSHOT.jar] 파일 클릭 또는 [cmd]창에 [demo.0.0.1-SNAPSHOT.jar] 가 있는 폴더로 이동 &gt; [java -jar demo.0.0.1-SNAPSHOT.jar] 입력
 
-3. [API 호출]
->	URL([url]은 실행되는 url + port, 기본: localhost:8080)
+3. [API 호출 경로]
+>	url : localhost:8080, http.GET방식
 	
 	    기능 1번: [url]/api/api1
 	    기능 2번: [url]/api/api2
@@ -39,15 +40,21 @@
 4. [테스트 실행] 
 >	1. [ECLIPSE] 
 >		- src/test/java &gt; com.pay.api.controller.ApiControllerTest 우클릭 &gt; run as &gt; JUnit Test 클릭
->	2. [JAR]	
->		- [cmd] 창에 [demo.0.0.1-SNAPSHOT.jar] 파일이 존재하는 경로에서 명령어 []실행
 
 5. [API 해결방법]
 >
-	(1) 취소 거래가 'Y'인 경우 일치하는 일자의 거래번호와 -SUM 해야하는지 불분명하여 'Y'인 항목은 제외하고 계산하였음.
-	(2) 자료구조를 json 변환하기 위해 Gson을 사용하였음.
-	(3) 기능1,기능2,기능3은 조회조건이 고정되어있어 api상으로 parameter가 없이 동작
-	(4) 기능3의 response json 구문을 생성하기 위해 domain에 Api3,Api3Detail 객체를 구현하여 json을 생성
-	(5) 기능4의 error handling은 custom exception인 BrNotFoundException을 구현, ExceptionController로 에러문구 생성.
-		에러구문은 json format에 맞출수 없어 약간의 수정을 통해 구현
-	(6) 거래내역 정보 table : DEAL_HIST, 계좌 정보 table : ACC_HIST,관리점 정보 table : BR_HIST 로 구성
+	0.공통
+>-자료구조를 json 변환하기 위해 Gson을 사용하였음.
+>-기능1,기능2,기능3은 조회조건이 고정되어있어 api상으로 parameter가 없이 동작
+>-취소 구분이 'Y'인 항목은 제외하고 계산하였음.
+	1.기능1
+>-
+	2.기능2
+>-
+	3.기능3
+>-response json 구문을 생성하기 위해 domain에 Api3,Api3Detail 객체를 구현하여 json을 생성
+	4.기능4
+>-기능4의 error handling은 custom exception인 BrNotFoundException을 구현, ExceptionController로 에러문구 생성.
+>-제시된 에러구문은 json format만족하지 않아 약간의 수정을 통해 구현
+
+(6) 거래내역 정보 table : DEAL_HIST, 계좌 정보 table : ACC_HIST,관리점 정보 table : BR_HIST 로 구성
