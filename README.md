@@ -37,8 +37,10 @@
 		(2) [url]/api/api4, header parameter에 brName 추가
 
 4. [테스트 실행] 
->	src/test/java > com.pay.api.controller.ApiControllerTest 우클릭 > run as > JUnit Test 클릭
-
+>	1. [ECLIPSE] 
+>		- src/test/java &gt; com.pay.api.controller.ApiControllerTest 우클릭 &gt; run as &gt; JUnit Test 클릭
+>	2. [JAR]	
+>		- [cmd] 창에 [demo.0.0.1-SNAPSHOT.jar] 파일이 존재하는 경로에서 명령어 []실행
 
 5. [API 해결방법]
 >
