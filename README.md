@@ -62,7 +62,7 @@
 
 6. [테이블 정의]
 >
-> - 거래내역 정보 table : DEAL_HIST
+>-거래내역 정보 table : DEAL_HIST
 >|컬럼명|자료형|컬럼설명|
 >|------|---|---|
 >|BIZDATE|VARCHAR(8)|거래일|
@@ -72,16 +72,17 @@
 >|VAT|NUMBER|수수료|
 >|CANCEL_YN|CHAR(1)|취소여부|
 > 
->계좌 정보 table : ACC_HIST
+>-계좌 정보 table : ACC_HIST
 >|컬럼명|자료형|컬럼설명|
 >|------|---|---|
 >|ACCT_NO|VARCHAR(8)|계좌번호|
 >|ACCT_NM|VARCHAR(500)|계좌명|
 >|BR_CODE|VARCHAR(10)|관리점코드|
 >
->관리점 정보 table : BR_HIST
+>-관리점 정보 BR_HIST
 >|컬럼명|자료형|컬럼설명|
 >|------|---|---|
 >|BR_CODE|VARCHAR(10)|관리점코드|
 >|BR_NAME|VARCHAR(500)|관리점명|
 >
+
