@@ -27,7 +27,7 @@
 >		
 >	3. [JAR 파일 실행]
 >		>상기 항목중 하나라도 완료가 된 경우
->		- [프로젝트 우클릭] > [RUN AS] > [MAVEN BUILD] 클릭
+>		- [프로젝트 우클릭] > [RUN AS] > [MAVEN BUILD] 클릭 (goals:package,profiles:없음)
 >		- 프로젝트 > [target] 폴더 내부에 있는 [demo.0.0.1-SNAPSHOT.jar] 파일 클릭 또는 [console]창에서 [demo.0.0.1-SNAPSHOT.jar] 가 있는 폴더로 이동 &gt; [java -jar demo.0.0.1-SNAPSHOT.jar] 입력
 >		>상기 항목중 하나라도 완료하지 못한 경우
 >		- 압축을 푼 폴더에서 [demo.0.0.1-SNAPSHOT.jar] 파일 클릭 또는 [console]창에서 [demo.0.0.1-SNAPSHOT.jar] 가 있는 폴더로 이동 &gt; [java -jar demo.0.0.1-SNAPSHOT.jar] 입력
