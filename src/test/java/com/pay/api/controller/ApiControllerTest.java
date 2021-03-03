@@ -29,7 +29,6 @@ import com.pay.api.service.ApiService;
 import com.pay.exception.BrNotFoundException;
 
 @DisplayName("API CONTROLLER TEST")
-//@RunWith(SpringRunner.class)
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
@@ -108,7 +107,7 @@ public class ApiControllerTest {
 		
 	}
     
-    @DisplayName("API4 URL TEST (PATH)")
+    @DisplayName("API4 URL TEST (PATH PARAM)")
 	@ParameterizedTest(name="brName {0}")
 	@ValueSource(strings = {"판교점","분당점","강남점","잠실점","을지로점"})
     void api4UrlTest1(String brName) throws Exception {
@@ -124,6 +123,7 @@ public class ApiControllerTest {
     		if(!(e instanceof BrNotFoundException)) {
     			throw e;
     		}
+    		logger.info(brName+":{}",e.getMessage());
     	}
 		
 	}
@@ -134,16 +134,17 @@ public class ApiControllerTest {
     void api4UrlTest2(String brName) throws Exception {
     	try {
     	final ResultActions actions = mvc.perform(get("/api/api4")
-                .contentType(MediaType.APPLICATION_JSON).param("brName", brName).characterEncoding("UTF-8"));
-        
+    			.contentType(MediaType.APPLICATION_JSON).param("brName", brName).characterEncoding("UTF-8"));
+
     	actions
-        .andDo(print())
+    	.andDo(print())
         .andExpect(status().isOk())
         ;
     	}catch(Exception e) {
     		if(!(e instanceof BrNotFoundException)) {
     			throw e;
     		}
+    		logger.info(brName+":{}",e.getMessage());
     	}
 		
 	}
@@ -187,6 +188,7 @@ public class ApiControllerTest {
 			if(!(e instanceof BrNotFoundException)) {
     			throw e;
     		}
+			logger.info(brName+":{}",e.getMessage());
 		}
 		
 	}
