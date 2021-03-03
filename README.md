@@ -13,22 +13,28 @@
 >      mapper 경로 : src/main/resources &gt; mapper</br>
 
 2. [실행방법]
->
->	1. [JAR 파일 실행]
->		- [demo.0.0.1-SNAPSHOT.jar] 파일 클릭 또는 [cmd]창에 [demo.0.0.1-SNAPSHOT.jar] 가 있는 폴더로 이동 &gt; [java -jar demo.0.0.1-SNAPSHOT.jar] 입력
 >		
->	2. [ZIP FILE]
->		- 압축파일을 풀고 난뒤 eclipse에서 File > Open Projects From File System... 클릭 후 압축이 풀린 폴더를 지정하여 project import
->
->	3. [GITHUB]
->		- [https://github.com/Atlasias/pay-demo.git] 경로상의 프로젝트를 로컬로 checkout 받아서 이용
+>	1. [압축파일]
+>		- 압축파일을 풀고 난뒤 [ECLIPSE]에서 File > [Open Projects From File System...] 클릭 후 압축이 풀린 폴더에서 [demo]폴더를 지정하여 project import
+>		- [프로젝트 우클릭] > [RUN AS] > [MAVEN BUILD] 클릭
+>		- eclipse 에서 import 후 [Boot Dashboard] 탭에서 demo 실행<br>
+>		- ※해당 프로젝트가 [Boot Dashboard]탭에 없으면 없으면 프로젝트 우클릭 &gt; run as &gt; Run Configurations 클릭 &gt; 새창 좌측 항목 중에 Spring Boot App 클릭 &gt; Main type에 [com.pay.Application] 기입 후 하단의 Run 버튼 실행
 >		
->>eclipse 에서 import 후 [Boot Dashboard] 탭에서 demo 실행<br>
->>※해당 프로젝트 실행이 없으면 프로젝트 우클릭 &gt; run as &gt; Run Configurations 클릭 &gt; 좌측 항목 중에 Spring Boot App 클릭 &gt; Main type에 [com.pay.Application] 기입 후 하단의 Run 버튼 실행
-
+>	2. [GITHUB]
+>		- [https://github.com/Atlasias/pay-demo.git] 경로상의 프로젝트를 로컬로 내려 받아서 이용
+>		- eclipse 에서 import 후 [Boot Dashboard] 탭에서 demo 실행<br>
+>		- ※해당 프로젝트가 [Boot Dashboard]탭에 없으면 없으면 프로젝트 우클릭 &gt; run as &gt; Run Configurations 클릭 &gt; 새창 좌측 항목 중에 Spring Boot App 클릭 &gt; Main type에 [com.pay.Application] 기입 후 하단의 Run 버튼 실행
+>		
+>	3. [JAR 파일 실행]
+>		>상기 항목중 하나라도 완료가 된 경우
+>		- [프로젝트 우클릭] > [RUN AS] > [MAVEN BUILD] 클릭
+>		- 프로젝트 > [target] 폴더 내부에 있는 [demo.0.0.1-SNAPSHOT.jar] 파일 클릭 또는 [console]창에서 [demo.0.0.1-SNAPSHOT.jar] 가 있는 폴더로 이동 &gt; [java -jar demo.0.0.1-SNAPSHOT.jar] 입력
+>
 
 3. [API 호출 경로]
->	url : localhost:8080, http.GET방식
+>	- API 기본 설정 
+>>	url : localhost:8080<br>
+>>	http.GET방식<br>
 	
 	    기능 1번: [url]/api/api1
 	    기능 2번: [url]/api/api2
