@@ -35,10 +35,14 @@
 
 	<select id="selectApi2" resultType="com.pay.util.CamelCaseMap">
 		/* com.pay.api.mapper.ApiMapper || mapper.api.apiMapper || selectApi2 */
-		SELECT AC.ACCT_NO,AC.ACCT_NM,AC.YEAR
+		SELECT AC.ACCT_NO,
+				AC.ACCT_NM,
+				AC.YEAR
 		FROM
 			(
-				SELECT ACC.ACCT_NO, ACC.ACCT_NM, UNON.YEAR
+				SELECT ACC.ACCT_NO, 
+					ACC.ACCT_NM, 
+					UNON.YEAR
 				FROM ACC_HIST ACC,
 				(
 					SELECT '2018' AS YEAR FROM DUAL
