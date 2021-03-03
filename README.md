@@ -47,14 +47,17 @@
 >> - 자료구조를 json 변환하기 위해 Gson을 사용하였음 <br>
 >> - 기능1,기능2,기능3은 조회조건이 고정되어있어 api상으로 parameter가 없이 동작 <br>
 >> - 취소 구분이 'Y'인 항목은 제외하고 계산하였음 <br>
+>> 
 >	(1) [기능1]
 >>
 >	(2) [기능2]
 >>
 >	(3) [기능3]
 >> - response json 구문을 생성하기 위해 domain에 Api3,Api3Detail 객체를 구현하여 json을 생성 <br>
+>> 
 >	(4) [기능4]
 >> - 기능4의 error handling은 custom exception인 BrNotFoundException을 구현, ExceptionController로 에러문구 생성 <br>
 >> - 제시된 에러구문은 json format만족하지 않아 약간의 수정을 통해 구현 <br>
+>
 
 - 거래내역 정보 table : DEAL_HIST, 계좌 정보 table : ACC_HIST,관리점 정보 table : BR_HIST 로 구성
